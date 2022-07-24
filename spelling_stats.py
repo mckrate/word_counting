@@ -2,7 +2,7 @@ from itertools import count
 from prettytable import PrettyTable
 
 # Open the file containing the list of words
-f = open('words_2022-07-11.txt', 'r')
+f = open('words_2022-07-24.txt', 'r')
 blob = f.readlines()
 words = []
 for w in blob:
