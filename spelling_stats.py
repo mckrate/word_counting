@@ -1,8 +1,8 @@
 from itertools import count
 from prettytable import PrettyTable
 
-# Open the file containing the list of words
-f = open('words_2022-07-24.txt', 'r')
+# Open the filecontaining the list of words
+f = open('words_2022-07-31.txt', 'r')
 blob = f.readlines()
 words = []
 for w in blob:
@@ -11,35 +11,36 @@ words = [val for val in words if val]
 f.close()
 
 # Print the length of the list
-print("There are " + str (len(words)) + " words in the file")
+wordCount = len(words)
+print("There are " + str(wordCount) + " words in the file:")
 
 # Print the list
 print(words)
 
 # Collect the unique set of seven letters used
 listLetter = []
-letterdict = {}
-
 for s in words:
     for l in s:
         listLetter.append(l)
-listLetter = list(dict.fromkeys(listLetter))
-
-# Sort the list of unique letters and print it
-listLetter.sort()
+listLetter = list(sorted(dict.fromkeys(listLetter)))
 print("The seven letters in the puzzle are: " + str(listLetter))
+
+# Collect the word lengths 
+wordLength = []
+for w in words:
+     wordLength.append(len(w))
+wordLength = list(sorted(dict.fromkeys(wordLength)))
+print("The word lengths are " + str(wordLength))
 
 # Find the length of the longest word
 longest = max(words, key=len)
 print("The longest word is: " + str(longest) + " with a length of " + str(len(longest)))
 
-# Find the number of N-letter words 
-count = 4
-while (count < len(longest)+1):
-    lenlist = [item for item in words if len(item)==count]
-    print("There are " + str(len(lenlist)) +" "+ str(count) + "-letter words:")
-#    print(lenlist)
-    count = count + 1
+# find the words that have the same length
+for i in wordLength:
+    lenList = [item for item in words if len(item)==i]
+    print("There are " + str(len(lenList)) +" "+ str(i) + "-letter words:")
+#    print(lenList)
 
 # Find the words that have the same first letter
 for l in listLetter:
