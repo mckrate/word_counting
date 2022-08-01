@@ -48,12 +48,17 @@ for l in listLetter:
     print("There are " + str(len(letlist)) + " words that start with the letter " + str(l))
 #    print(letlist)
 
-# Count the number of N-letter words that start with the first letter "l"
-for l in listLetter:
-    count = 4
-    while (count < len(longest) + 1):
-        sublist = [item for item in words if (len(item)==count and item.startswith(l))]
-        print(str(l) + str(count) + " " + str(len(sublist)))
-        count = count + 1
-    print("--")
+# def num_words(string, target_len, target_let):
+#     tally = 0
+#     for word in words:
+
+
+# # Count the number of N-letter words that start with the first letter "l"
+# for l in listLetter:
+#     count = 4
+#     while (count < len(longest) + 1):
+#         sublist = [item for item in words if (len(item)==count and item.startswith(l))]
+#         print(str(l) + str(count) + " " + str(len(sublist)))
+#         count = count + 1
+#     print("--")
        
